@@ -1,1 +1,58 @@
-
+[
+  {
+    "category": "Padaswaram",
+    "folders": [
+      {
+        "folderName": "Savitham",
+        "images": [
+          {
+            "name": "Screenshot From 2026-06-14 22-07-20",
+            "path": "images/Padaswaram/Savitham/Screenshot From 2026-06-14 22-07-20.png"
+          },
+          {
+            "name": "Screenshot From 2026-06-14 22-07-24",
+            "path": "images/Padaswaram/Savitham/Screenshot From 2026-06-14 22-07-24.png"
+          },
+          {
+            "name": "Screenshot From 2026-06-14 22-07-28",
+            "path": "images/Padaswaram/Savitham/Screenshot From 2026-06-14 22-07-28.png"
+          }
+        ]
+      },
+      {
+        "folderName": "guhan",
+        "images": [
+          {
+            "name": "Screenshot From 2026-06-14 22-07-09",
+            "path": "images/Padaswaram/guhan/Screenshot From 2026-06-14 22-07-09.png"
+          },
+          {
+            "name": "Screenshot From 2026-06-14 22-07-12",
+            "path": "images/Padaswaram/guhan/Screenshot From 2026-06-14 22-07-12.png"
+          },
+          {
+            "name": "Screenshot From 2026-06-14 22-07-15",
+            "path": "images/Padaswaram/guhan/Screenshot From 2026-06-14 22-07-15.png"
+          }
+        ]
+      },
+      {
+        "folderName": "maklachi",
+        "images": [
+          {
+            "name": "Screenshot From 2026-06-14 22-06-42",
+            "path": "images/Padaswaram/maklachi/Screenshot From 2026-06-14 22-06-42.png"
+          },
+          {
+            "name": "Screenshot From 2026-06-14 22-06-53",
+            "path": "images/Padaswaram/maklachi/Screenshot From 2026-06-14 22-06-53.png"
+          },
+          {
+            "name": "Screenshot From 2026-06-14 22-07-02",
+            "path": "images/Padaswaram/maklachi/Screenshot From 2026-06-14 22-07-02.png"
+          }
+        ]
+      }
+    ]
+  }
+]
