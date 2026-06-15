@@ -796,21 +796,21 @@ header h1 {
     }
 
     header {
-        margin-bottom: 25px;
+        margin-bottom: 20px;
     }
 
     .logo-container {
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
     }
 
     .site-logo {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
     }
 
     header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
         letter-spacing: 2px;
         word-break: break-word;
     }
@@ -818,69 +818,76 @@ header h1 {
     #searchInput {
         width: 100%;
         max-width: 100%;
-        padding: 14px 18px;
+        padding: 12px 16px;
+        font-size: 14px;
     }
 
     .category-header {
-        flex-wrap: wrap;
-        gap: 8px;
-        font-size: 1rem;
-        padding: 14px;
+        font-size: 0.95rem;
+        padding: 12px;
     }
 
     .category-header .image-count {
-        width: 100%;
-        text-align: left;
+        font-size: 0.75rem;
     }
 
+    /* TWO FOLDERS PER ROW */
     .folders-container {
-        grid-template-columns: 1fr;
-        padding: 12px;
-        gap: 15px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
     }
 
     .folder-header {
-        flex-wrap: wrap;
-        gap: 10px;
-        padding: 12px;
+        padding: 8px;
+        gap: 6px;
+        font-size: 0.75rem;
     }
 
     .folder-info {
-        width: 100%;
+        gap: 6px;
         flex-wrap: wrap;
-        gap: 8px;
     }
 
     .folder-name {
-        max-width: 100%;
+        font-size: 0.72rem;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
 
     .copy-link-btn {
-        font-size: 0.75rem;
-        padding: 5px 10px;
+        font-size: 0.6rem;
+        padding: 3px 6px;
     }
 
+    .image-count {
+        font-size: 0.65rem;
+    }
+
+    /* KEEP DESKTOP STYLE IMAGE GRID */
     .images-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        padding: 12px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+        padding: 8px;
     }
 
     .image-card {
-        min-height: 120px;
+        min-height: 70px;
+    }
+
+    .image-name {
+        font-size: 0.6rem;
     }
 
     .lightbox-content {
         max-width: 95%;
-        max-height: 75vh;
+        max-height: 80vh;
     }
 
     .lightbox-caption {
         max-width: 95%;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
 
     .close-lightbox {
@@ -901,16 +908,16 @@ header h1 {
 @media (max-width: 480px) {
 
     body {
-        padding: 8px;
+        padding: 6px;
     }
 
     .site-logo {
-        width: 65px;
-        height: 65px;
+        width: 55px;
+        height: 55px;
     }
 
     header h1 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         letter-spacing: 1px;
         line-height: 1.2;
     }
@@ -926,47 +933,49 @@ header h1 {
     }
 
     .category-header {
-        font-size: 0.95rem;
-        padding: 12px;
+        font-size: 0.8rem;
+        padding: 10px;
+    }
+
+    .category-header .image-count {
+        font-size: 0.65rem;
+    }
+
+    .folders-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+        padding: 6px;
     }
 
     .folder-header {
-        padding: 10px;
+        padding: 6px;
+        font-size: 0.65rem;
     }
 
-    .images-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-        padding: 10px;
-    }
-
-    .image-card {
-        min-height: 100px;
-    }
-
-    .image-name {
-        font-size: 0.7rem;
+    .folder-name {
+        font-size: 0.65rem;
     }
 
     .copy-link-btn {
-        font-size: 0.7rem;
-        padding: 4px 8px;
+        font-size: 0.55rem;
+        padding: 2px 4px;
     }
-}
 
-/* Very Small Phones */
-@media (max-width: 360px) {
+    .image-count {
+        font-size: 0.55rem;
+    }
 
     .images-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4px;
+        padding: 6px;
     }
 
-    header h1 {
-        font-size: 1.3rem;
+    .image-card {
+        min-height: 55px;
     }
 
-    .site-logo {
-        width: 55px;
-        height: 55px;
+    .image-name {
+        display: none;
     }
 }
