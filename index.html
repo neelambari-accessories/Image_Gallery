@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galleria Neelambari</title>
+    
+    <!-- Add this Google Font link for the stylish Italian font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+
+    <!-- Splash Screen -->
+    <div id="splashScreen" class="splash-screen">
+        <div class="splash-content">
+            <img src="icons/cover photo.png"
+                alt="Galleria Neelambari"
+                class="splash-image"
+                onerror="this.style.display='none'; this.parentElement.querySelector('.splash-fallback').style.display='flex';">
+            <div class="splash-fallback" style="display: none;">
+                <div class="logo-icon">🪷</div>
+                <!-- Changed to Italian -->
+                <h2>Galleria Neelambari</h2> 
+            </div>
+            <div class="splash-loader"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="icons/logo.png" alt="Galleria Neelambari" class="site-logo" onerror="this.style.display='none'; this.parentElement.querySelector('.logo-fallback').style.display='flex';">
+                <div class="logo-fallback" style="display: none;">
+                    <div class="logo-icon">🪷</div>
+                </div>
+                <!-- Changed to Italian -->
+                <h1>Galleria Neelambari</h1> 
+            </div>
+            
+            <input type="text" id="searchInput" placeholder="search category or images..."> <!-- Optional: Italian search placeholder -->
+        </header>
+        
+        <main id="galleryContainer">
+            <div class="loading">Caricamento galleria...</div> <!-- Optional: Italian loading text -->
+        </main>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightboxImg">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
