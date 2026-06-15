@@ -1,0 +1,12 @@
+{
+  "name": "image-gallery",
+  "version": "1.0.0",
+  "description": "Auto-generating image gallery",
+  "scripts": {
+    "generate-gallery": "node scripts/generate-gallery-json.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": ["gallery", "images"],
+  "author": "",
+  "license": "ISC"
+}
