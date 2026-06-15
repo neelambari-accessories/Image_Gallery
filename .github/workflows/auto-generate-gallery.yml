@@ -1,0 +1,55 @@
+name: Auto-Generate Gallery JSON
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'images/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-gallery:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Generate Gallery JSON
+        run: |
+          echo "🔍 Scanning for images..."
+          node scripts/generate-gallery-json.js
+          
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --quiet gallery.json || echo "changes=true" >> $GITHUB_OUTPUT
+          
+      - name: Commit and push changes
+        if: steps.git-check.outputs.changes == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add gallery.json
+          git commit -m "🤖 Auto-update gallery.json [skip ci]" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: No changes detected
+        if: steps.git-check.outputs.changes != 'true'
+        run: |
+          echo "✅ gallery.json is up to date - no changes needed"
