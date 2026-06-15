@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   generate-gallery:
@@ -28,23 +29,56 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Debug - Show directory structure
+        run: |
+          echo "=== Current Directory ==="
+          pwd
+          echo "=== All Files ==="
+          ls -la
+          echo "=== Images Directory ==="
+          if [ -d "images" ]; then
+            ls -la images/
+            echo "=== Category Folders ==="
+            ls -la images/*/ 2>/dev/null || echo "No category folders found"
+          else
+            echo "❌ images directory not found!"
+          fi
+
       - name: Generate Gallery JSON
         run: |
-          echo "🔍 Scanning for images..."
+          echo "=== Running Gallery Generator ==="
           node scripts/generate-gallery-json.js
-          
+          echo "=== Generated gallery.json content ==="
+          cat gallery.json
+          echo ""
+          echo "=== File size ==="
+          ls -lh gallery.json
+
       - name: Check for changes
         id: git-check
         run: |
-          git diff --quiet gallery.json || echo "changes=true" >> $GITHUB_OUTPUT
+          if git diff --quiet gallery.json; then
+            echo "changes=false" >> $GITHUB_OUTPUT
+            echo "✅ No changes detected in gallery.json"
+          else
+            echo "changes=true" >> $GITHUB_OUTPUT
+            echo "🔄 Changes detected in gallery.json"
+          fi
+          
+      - name: Configure Git
+        if: steps.git-check.outputs.changes == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action - Gallery Generator"
           
       - name: Commit and push changes
         if: steps.git-check.outputs.changes == 'true'
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
           git add gallery.json
-          git commit -m "🤖 Auto-update gallery.json [skip ci]" || echo "No changes to commit"
+          git commit -m "🤖 Auto-update gallery.json [skip ci]
+
+          Generated on: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          Triggered by: ${{ github.actor }}" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -53,3 +87,10 @@ jobs:
         if: steps.git-check.outputs.changes != 'true'
         run: |
           echo "✅ gallery.json is up to date - no changes needed"
+          
+      - name: Upload gallery.json as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gallery-json
+          path: gallery.json
+          retention-days: 7
