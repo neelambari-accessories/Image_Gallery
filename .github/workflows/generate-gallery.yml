@@ -1,10 +1,38 @@
-name: Test
+name: Generate Gallery JSON
 
 on:
  push:
+ branches:
+ - main
+
+permissions:
+ contents: write
 
 jobs:
- test:
+ generate-gallery:
  runs-on: ubuntu-latest
+
  steps:
- - run: echo "Hello"
+ - uses: actions/checkout@v4
+
+ - name: Setup Python
+ uses: actions/setup-python@v5
+ with:
+ python-version: "3.x"
+
+ - name: Generate gallery.json
+ run: python scripts/generate_gallery.py
+
+ - name: Commit gallery.json
+ run: |
+ git config user.name "github-actions"
+ git config user.email "actions@github.com"
+
+ git add gallery.json
+
+ if git diff --cached --quiet; then
+ echo "No changes"
+ else
+ git commit -m "Auto update gallery.json"
+ git push
+ fi
