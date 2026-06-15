@@ -381,7 +381,7 @@ header h1 {
 /* Folders Container */
 .folders-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 20px;
     padding: 20px 25px;
     background-color: var(--bg-secondary);
@@ -682,104 +682,6 @@ header h1 {
     border: 1px solid var(--border-color);
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-    .folders-container {
-        grid-template-columns: repeat(2, minmax(280px, 1fr));
-    }
-    
-    .images-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 768px) {
-    .splash-image {
-        max-width: 300px;
-        max-height: 200px;
-    }
-    
-    .logo-container {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .site-logo {
-        width: 80px;
-        height: 80px;
-    }
-    
-    /* Adjusted for mobile */
-    header h1 {
-        font-size: 2.2rem;
-        letter-spacing: 3px;
-    }
-    
-    .splash-fallback h2 {
-        font-size: 1.5rem;
-        letter-spacing: 2px;
-    }
-    
-    .category-header {
-        font-size: 1rem;
-        padding: 14px 18px;
-    }
-    
-    .folder-header {
-        flex-wrap: wrap;
-        gap: 10px;
-        padding: 10px 14px;
-    }
-    
-    .folder-info {
-        flex-wrap: wrap;
-    }
-    
-    .copy-link-btn {
-        font-size: 0.72rem;
-        padding: 5px 10px;
-    }
-    
-    .images-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-        padding: 14px;
-    }
-    
-    .copy-notification {
-        left: 15px;
-        right: 15px;
-        bottom: 15px;
-        max-width: none;
-    }
-    
-    .close-lightbox {
-        right: 20px;
-        top: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .splash-image {
-        max-width: 250px;
-    }
-    
-    .site-logo {
-        width: 70px;
-        height: 70px;
-    }
-    
-    /* Adjusted for small mobile */
-    header h1 {
-        font-size: 1.6rem;
-        letter-spacing: 2px;
-    }
-    
-    .images-grid {
-        grid-template-columns: repeat(2, minmax(120px, 1fr));
-        gap: 10px;
-    }
-}
 
 /* ==========================================
    MOBILE RESPONSIVE IMPROVEMENTS
