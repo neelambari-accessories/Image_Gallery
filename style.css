@@ -780,3 +780,193 @@ header h1 {
         gap: 10px;
     }
 }
+
+/* ==========================================
+   MOBILE RESPONSIVE IMPROVEMENTS
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    header {
+        margin-bottom: 25px;
+    }
+
+    .logo-container {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .site-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+        word-break: break-word;
+    }
+
+    #searchInput {
+        width: 100%;
+        max-width: 100%;
+        padding: 14px 18px;
+    }
+
+    .category-header {
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: 1rem;
+        padding: 14px;
+    }
+
+    .category-header .image-count {
+        width: 100%;
+        text-align: left;
+    }
+
+    .folders-container {
+        grid-template-columns: 1fr;
+        padding: 12px;
+        gap: 15px;
+    }
+
+    .folder-header {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .folder-info {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .folder-name {
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .copy-link-btn {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+    }
+
+    .images-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .image-card {
+        min-height: 120px;
+    }
+
+    .lightbox-content {
+        max-width: 95%;
+        max-height: 75vh;
+    }
+
+    .lightbox-caption {
+        max-width: 95%;
+        font-size: 0.9rem;
+    }
+
+    .close-lightbox {
+        right: 15px;
+        top: 10px;
+        font-size: 32px;
+    }
+
+    .copy-notification {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        max-width: none;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+
+    body {
+        padding: 8px;
+    }
+
+    .site-logo {
+        width: 65px;
+        height: 65px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        line-height: 1.2;
+    }
+
+    .splash-image {
+        max-width: 220px;
+        max-height: 180px;
+    }
+
+    .splash-fallback h2 {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+
+    .category-header {
+        font-size: 0.95rem;
+        padding: 12px;
+    }
+
+    .folder-header {
+        padding: 10px;
+    }
+
+    .images-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .image-card {
+        min-height: 100px;
+    }
+
+    .image-name {
+        font-size: 0.7rem;
+    }
+
+    .copy-link-btn {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+    }
+}
+
+/* Very Small Phones */
+@media (max-width: 360px) {
+
+    .images-grid {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    .site-logo {
+        width: 55px;
+        height: 55px;
+    }
+}
