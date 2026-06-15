@@ -5,62 +5,23 @@ on:
  branches:
  - main
 
+permissions:
+ contents: write
+
 jobs:
- build-gallery:
+ generate-gallery:
  runs-on: ubuntu-latest
 
  steps:
  - uses: actions/checkout@v4
 
+ - name: Setup Python
+ uses: actions/setup-python@v5
+ with:
+ python-version: "3.x"
+
  - name: Generate gallery.json
- run: |
- python << 'EOF'
- import os
- import json
-
- ROOT = "images"
- gallery = []
-
- if os.path.exists(ROOT):
- for category in sorted(os.listdir(ROOT)):
- cat_path = os.path.join(ROOT, category)
-
- if not os.path.isdir(cat_path):
- continue
-
- folders = []
-
- for folder in sorted(os.listdir(cat_path)):
- folder_path = os.path.join(cat_path, folder)
-
- if not os.path.isdir(folder_path):
- continue
-
- images = []
-
- for file in sorted(os.listdir(folder_path)):
- if file.lower().endswith(
- (".jpg",".jpeg",".png",".gif",".webp",".bmp",".svg")
- ):
- images.append({
- "name": file,
- "path": f"images/{category}/{folder}/{file}"
- })
-
- folders.append({
- "folderName": folder,
- "images": images
- })
-
- gallery.append({
- "category": category,
- "folders": folders
- })
-
- with open("gallery.json", "w", encoding="utf-8") as f:
- json.dump(gallery, f, indent=2)
-
- EOF
+ run: python scripts/generate_gallery.py
 
  - name: Commit gallery.json
  run: |
@@ -69,7 +30,9 @@ jobs:
 
  git add gallery.json
 
- git diff --cached --quiet || (
+ if git diff --cached --quiet; then
+ echo "No changes"
+ else
  git commit -m "Auto update gallery.json"
  git push
- )
+ fi
